@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://b200d4m22a3pd"]
+
+[ext_resource type="TileSet" uid="uid://b00k8ulcau4wo" path="res://Assets/Tiles/tilemap1.tres" id="1_at1es"]
+[ext_resource type="Script" path="res://TestLevel.gd" id="1_n4nmw"]
+[ext_resource type="PackedScene" uid="uid://jdv300crmtch" path="res://Levels/second_level.tscn" id="2_t5e0s"]
+[ext_resource type="Texture2D" uid="uid://c4uvut6g58v66" path="res://Assets/Images/Basic Tiles/Basic Tiles.png" id="4_kxxrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yck0w"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e8ib"]
+
+[node name="BounceTestLevel" type="Node2D"]
+script = ExtResource("1_n4nmw")
+next = ExtResource("2_t5e0s")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_at1es")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048576, 589825, 0, 1048577, 589825, 0, 1048578, 589825, 0, 1048579, 589825, 0, 1048580, 589825, 0, 1114116, 589825, 0, 1114115, 589825, 0, 1114114, 589825, 0, 1114113, 589825, 0, 1114112, 589825, 0, 1048581, 589825, 0, 1114117, 589825, 0, 5, 589825, 0, 65541, 589825, 0, 131077, 589825, 0, -65531, 589825, 0, -65530, 589825, 0, -65529, 589825, 0, -65528, 589825, 0, -65527, 589825, 0, -65526, 589825, 0, -65525, 589825, 0, -65524, 589825, 0, -65523, 589825, 0, -65522, 589825, 0, -65521, 589825, 0, -65520, 589825, 0, -65519, 589825, 0, -65515, 589825, 0, -65514, 589825, 0, 1179647, 589825, 0, 1114111, 589825, 0, 1048575, 589825, 0, 983039, 589825, 0, 917503, 589825, 0, 851967, 589825, 0, 786431, 589825, 0, 720895, 589825, 0, 655359, 589825, 0, 589823, 589825, 0, 524287, 589825, 0, 458751, 589825, 0, 393215, 589825, 0, 327679, 589825, 0, 262143, 589825, 0, 196607, 589825, 0, 131071, 589825, 0, 65535, 589825, 0, -1, 589825, 0, -65536, 589825, 0, -65535, 589825, 0, -65534, 589825, 0, -65533, 589825, 0, -65532, 589825, 0, 1114138, 589825, 0, 327687, 589825, 0, 196613, 589825, 0, 262149, 589825, 0, 262150, 589825, 0, 327686, 589825, 0, 1114139, 589825, 0, 1114140, 589825, 0, 1114141, 589825, 0, 1114142, 589825, 0, 1114143, 589825, 0, 196630, 589825, 0, 131094, 589825, 0, 131093, 589825, 0, 65557, 589825, 0, 21, 589825, 0, 1048605, 589825, 0, 1048606, 589825, 0, 983070, 589825, 0, 983071, 589825, 0, 917534, 589825, 0, 851998, 589825, 0, 851999, 589825, 0, 917535, 589825, 0, 1048607, 589825, 0, 786463, 589825, 0, 720927, 589825, 0, 655391, 589825, 0, 196639, 589825, 0, 262175, 589825, 0, 327711, 589825, 0, 458783, 589825, 0, 524319, 589825, 0, 393247, 589825, 0, 589855, 589825, 0, 1048603, 589825, 0, 1048604, 589825, 0, 655390, 589825, 0, 720926, 589825, 0, 786462, 589825, 0, 524316, 589825, 0, 393243, 589825, 0, 327707, 589825, 0, 458779, 589825, 0, 458780, 589825, 0, 524317, 589825, 0, -65513, 589825, 0, -65512, 589825, 0, -65511, 589825, 0, -65510, 589825, 0, -65509, 589825, 0, -65508, 589825, 0, -65507, 589825, 0, -65506, 589825, 0, -65505, 589825, 0, -65504, 589825, 0, 524318, 589825, 0, 589854, 589825, 0, 983069, 589825, 0, 983068, 589825, 0, 458778, 589825, 0, 720911, 589825, 0, 786447, 589825, 0, 851983, 589825, 0, 917520, 589825, 0, 983057, 589825, 0, 851978, 589825, 0, 917514, 589825, 0, 983050, 589825, 0, 1048586, 589825, 0, 1114122, 589825, 0, 786443, 589825, 0, 262156, 589825, 0, 720908, 589825, 0, 262157, 589825, 0, 589837, 589825, 0, 655373, 589825, 0, 327694, 589825, 0, 393230, 589825, 0, 458766, 589825, 0, 524302, 589825, 0, 589838, 589825, 0, 655374, 589825, 0, 720921, 589825, 0, 720920, 589825, 0, 655384, 589825, 0, 589847, 589825, 0, 393237, 589825, 0, 458773, 589825, 0, 589846, 589825, 0, 524309, 589825, 0, 1114132, 589825, 0, 1048595, 589825, 0, 983058, 589825, 0, 720919, 589825, 0, 786455, 589825, 0, 851991, 589825, 0, 917526, 589825, 0, 1114133, 589825, 0, 131089, 589825, 0, 196626, 589825, 0, 262162, 589825, 0, 262161, 589825, 0, 196625, 589825, 0, 65553, 589825, 0, 17, 589825, 0, 16, 589825, 0, 65552, 589825, 0, 196640, 589825, 0, 196641, 589825, 0, -65503, 589825, 0, -65502, 589825, 0, 196642, 589825, 0)
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(92, 92)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="Spike2" type="Area2D" parent="."]
+position = Vector2(132, 108)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike2"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="Spike3" type="Area2D" parent="."]
+position = Vector2(172, 44)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike3"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="Spike4" type="Area2D" parent="."]
+position = Vector2(236, 116)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike4"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike4"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="Spike5" type="Area2D" parent="."]
+position = Vector2(236, 60)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike5"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike5"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="Spike6" type="Area2D" parent="."]
+position = Vector2(244, 60)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike6"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike6"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="Spike7" type="Area2D" parent="."]
+position = Vector2(122, 159)
+scale = Vector2(43, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike7"]
+texture = ExtResource("4_kxxrn")
+hframes = 32
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike7"]
+shape = SubResource("RectangleShape2D_yck0w")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(22, 120)
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(266, 12)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+shape = SubResource("RectangleShape2D_6e8ib")
+
+[connection signal="body_entered" from="Spike" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike2" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike3" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike4" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike5" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike6" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike7" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="FinishLine" to="." method="_on_finish_line_body_entered"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://kb71oxhw0cjc"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_i4duo"]
+[ext_resource type="PackedScene" uid="uid://b200d4m22a3pd" path="res://BounceTestLevel.tscn" id="2_63g8u"]
+[ext_resource type="PackedScene" uid="uid://cgxrkwv1bqpk5" path="res://Player.tscn" id="3_jk137"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_i4duo")
+first_level = ExtResource("2_63g8u")
+player = ExtResource("3_jk137")

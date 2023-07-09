@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://co5y3t3mucrdo"]
+
+[ext_resource type="Script" path="res://Modules/Misc/EnemySpawner/EnemySpawner.gd" id="1_le57h"]
+[ext_resource type="PackedScene" uid="uid://bawbc4n3ln10g" path="res://Modules/Enemys/Ogre/ogre.tscn" id="2_pb378"]
+
+[node name="EnemySpawner" type="Node2D"]
+position = Vector2(802, -279)
+script = ExtResource("1_le57h")
+time_until_first_wave = 80
+enemy_list = Array[PackedScene]([ExtResource("2_pb378")])
+enemy_total = 5
+min_time_between_wave = 6
+max_time_between_wave = 17
+enemy_level = 1
+
+[node name="WaveTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_timer_timeout"]

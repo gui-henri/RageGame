@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://bawbc4n3ln10g"]
+
+[ext_resource type="Script" path="res://Modules/Enemys/Ogre/Ogre.gd" id="1_c2d4l"]
+[ext_resource type="Texture2D" uid="uid://vhk5vl8aiwhf" path="res://Assets/Images/Ogre/Ogre.png" id="2_i3mwq"]
+[ext_resource type="Script" path="res://Modules/Scripts/Weapon.gd" id="3_lrgs2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_earum"]
+size = Vector2(5, 7)
+
+[sub_resource type="Animation" id="Animation_toepe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mdo5j"]
+resource_name = "walk"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0agv"]
+_data = {
+"RESET": SubResource("Animation_toepe"),
+"walk": SubResource("Animation_mdo5j")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb0jp"]
+size = Vector2(7, 9)
+
+[node name="Ogre" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(233, 53)
+script = ExtResource("1_c2d4l")
+life_points = 10
+knock_resist = 30
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3mwq")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_earum")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walk"
+libraries = {
+"": SubResource("AnimationLibrary_j0agv")
+}
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("3_lrgs2")
+damage = 3
+force = 100
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_nb0jp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

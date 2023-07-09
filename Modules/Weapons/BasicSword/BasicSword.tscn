@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://hu0hsu7agptj"]
+
+[ext_resource type="Script" path="res://Modules/Weapons/BasicSword/BasicSword.gd" id="1_y26mj"]
+[ext_resource type="Texture2D" uid="uid://dwsfnt3oti5t7" path="res://Assets/Images/Weapons/BasicSword.png" id="2_vptc4"]
+
+[sub_resource type="Animation" id="Animation_cieej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_54hjw"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6spi"]
+_data = {
+"RESET": SubResource("Animation_cieej"),
+"attack": SubResource("Animation_54hjw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erb5n"]
+size = Vector2(3, 19)
+
+[node name="BasicSword" type="Node2D"]
+script = ExtResource("1_y26mj")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+position = Vector2(0, -12.5)
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_vptc4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
+autoplay = "attack"
+libraries = {
+"": SubResource("AnimationLibrary_m6spi")
+}
+
+[node name="CollisionDetector" type="Area2D" parent="Body"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/CollisionDetector"]
+position = Vector2(0.5, -9.5)
+shape = SubResource("RectangleShape2D_erb5n")
+
+[connection signal="animation_finished" from="Body/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Body/CollisionDetector" to="." method="_on_collision_detector_body_entered"]
